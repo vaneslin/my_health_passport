@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+
+    <h1>myHealth Passport App</h1>
+
+    <button>Send message to environment</button>
+
+    <script>
+      document.querySelector("button").addEventListener("click", () => {
+        window.parent.postMessage("hi", "*")
+      })
+
+      window.addEventListener("message", e => {
+        document.querySelector("button").innerText += " " + e.data
+      })
+    </script>
+  </body>
+</html>
